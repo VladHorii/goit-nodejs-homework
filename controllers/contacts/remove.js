@@ -1,16 +1,17 @@
-const contactSchema = require("../../schemas/contact");
-const contactsFn = require("../../model/contacts");
+const { Contact } = require("../../model");
+const { joiSchema } = require("../../model/contact");
 
 const remove = async (req, res, next) => {
   try {
-    const { error } = contactSchema.validate(req.query);
+    const { error } = joiSchema.validate(req.body);
     if (error) {
       const err = new Error(error.message);
       err.status = 400;
       throw err;
     }
 
-    const removeStatus = await contactsFn.removeContact(req.params.contactId);
+    const removeStatus = await Contact.findByIdAndRemove(req.params.contactId);
+
     if (removeStatus) {
       return res.json({ message: "contact deleted" });
     }

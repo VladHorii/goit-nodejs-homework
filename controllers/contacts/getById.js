@@ -1,8 +1,11 @@
-const contactsFn = require("../../model/contacts");
+const { Contact } = require("../../model");
 
 const getById = async (req, res, next) => {
   try {
-    const foundContact = await contactsFn.getContactById(req.params.contactId);
+    const foundContact = await Contact.findById(
+      req.params.contactId,
+      "_id name email phone favorite"
+    );
 
     if (!foundContact) {
       const error = new Error("Not Found");
