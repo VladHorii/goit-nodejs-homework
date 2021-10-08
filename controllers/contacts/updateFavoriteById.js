@@ -1,5 +1,5 @@
-const { Contact } = require("../../model");
-const { updateFavoriteJoiSchema } = require("../../model/contact");
+const { Contact } = require("../../models");
+const { updateFavoriteJoiSchema } = require("../../models/contact");
 
 const updateFavoriteById = async (req, res, next) => {
   try {

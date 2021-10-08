@@ -1,5 +1,5 @@
-const { Contact } = require("../../model");
-const { joiSchema } = require("../../model/contact");
+const { Contact } = require("../../models");
+const { joiSchema } = require("../../models/contact");
 
 const remove = async (req, res, next) => {
   try {
