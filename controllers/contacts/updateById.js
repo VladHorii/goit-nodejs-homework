@@ -1,8 +1,8 @@
 const { Contact } = require("../../models");
 
 const updateById = async (req, res, next) => {
-  const updateStatus = await Contact.findByIdAndUpdate(
-    req.params.contactId,
+  const updateStatus = await Contact.findOneAndUpdate(
+    { owner: req.user._id, _id: req.params.contactId },
     req.body,
     { new: true }
   );

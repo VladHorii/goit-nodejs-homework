@@ -1,8 +1,8 @@
 const { Contact } = require("../../models");
 
 const getById = async (req, res) => {
-  const foundContact = await Contact.findById(
-    req.params.contactId,
+  const foundContact = await Contact.find(
+    { owner: req.user._id, _id: req.params.contactId },
     "_id name email phone favorite owner"
   );
 
