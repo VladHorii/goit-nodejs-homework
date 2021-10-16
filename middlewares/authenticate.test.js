@@ -29,24 +29,4 @@ describe("Auth middleware test", () => {
     expect(mReq.user).toEqual(user);
     expect(mockNext).toHaveBeenCalled();
   });
-
-  // it("Called without passing the authorization key", async () => {
-  //   const mockUserId = "123123123";
-  //   const mReq = {
-  //     headers: {
-  //       authorization: undefined,
-  //     },
-  //   };
-  //   const mRes = {
-  //     status: jest.fn(),
-  //     json: jest.fn(),
-  //   };
-
-  //   const mockNext = jest.fn();
-
-  //   await authenticate(mReq, mRes, mockNext);
-
-  //   expect(mReq.user).toEqual(user);
-  //   expect(mockNext).toHaveBeenCalled();
-  // });
 });
